@@ -1,159 +1,138 @@
-<!-- Floating full-width bottom nav with custom "killer" SVG icons. Paste this anywhere (no <body> wrapper required). -->
-
-<nav class="killer-bottom-nav" role="navigation" aria-label="Main">
-  <a class="nav-link" href="/home" aria-label="Home">
-    <!-- Home SVG -->
-    <svg class="nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="g1" x1="0" x2="1">
-          <stop offset="0%" stop-color="#00ffd1"/>
-          <stop offset="100%" stop-color="#7A5FFF"/>
-        </linearGradient>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="4" result="blur" />
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <path d="M3 11.5L12 5l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z" fill="url(#g1)" filter="url(#glow)"/>
-    </svg>
-    <span class="nav-label">HOME</span>
-  </a>
-
-  <a class="nav-link" href="/dashboard" aria-label="Dashboard">
-    <!-- Dashboard SVG -->
-    <svg class="nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="3" y="3" width="8" height="8" rx="1.2" fill="#fff" opacity="0.06"/>
-      <rect x="13" y="3" width="8" height="4" rx="1.2" fill="#fff" opacity="0.06"/>
-      <rect x="13" y="9" width="8" height="12" rx="1.2" fill="url(#g1)"/>
-      <rect x="3" y="13" width="8" height="8" rx="1.2" fill="url(#g1)" opacity="0.9"/>
-    </svg>
-    <span class="nav-label">DASHBOARD</span>
-  </a>
-
-  <a class="nav-link" href="/refrel" aria-label="Refrel">
-    <!-- Referral SVG -->
-    <svg class="nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M17 11a4 4 0 1 0-6.9-2" stroke="url(#g1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <path d="M7 13a3 3 0 1 0 0-6" stroke="#fff" stroke-opacity="0.6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <circle cx="18" cy="18" r="3" fill="url(#g1)"/>
-    </svg>
-    <span class="nav-label">REFREL</span>
-  </a>
-
-  <a class="nav-link" href="/withdrawl" aria-label="Withdrawl">
-    <!-- Withdraw SVG -->
-    <svg class="nav-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M21 12H7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M17 8l4 4-4 4" stroke="url(#g1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span class="nav-label">WITHDRAWL</span>
-  </a>
-
-  <a class="nav-link cta" href="/deposit" aria-label="Deposit">
-    <!-- Deposit (big center) SVG -->
-    <svg class="nav-icon cta-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="g2" x1="0" x2="1">
-          <stop offset="0%" stop-color="#FF7A59"/>
-          <stop offset="100%" stop-color="#FF3AA7"/>
-        </linearGradient>
-      </defs>
-      <circle cx="24" cy="24" r="22" fill="url(#g2)"/>
-      <path d="M24 14v20M14 24h20" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span class="nav-label">DEPOSIT</span>
-  </a>
-</nav>
-
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Apna 11 Top Bar</title>
 <style>
-  .killer-bottom-nav {
+  :root{
+    --bar-height: 60px;
+    --bg-grad: linear-gradient(90deg,#0f172a 0%, #0b5078 100%);
+    --glass: rgba(255,255,255,0.06);
+  }
+
+  body{ margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#0f172a; color:#fff; min-height:200vh; }
+
+  /* Top bar */
+  .topbar{
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 18px;
-    width: calc(100% - 28px);
-    max-width: 760px;
-    height: 72px;
-    background: linear-gradient(180deg, rgba(10,12,20,0.85), rgba(12,14,24,0.6));
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 14px;
-    gap: 6px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 40px rgba(122,95,255,0.08);
-    border: 1px solid rgba(255,255,255,0.04);
-    z-index: 9999999;
-    backdrop-filter: blur(6px) saturate(120%);
-    -webkit-tap-highlight-color: transparent;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--bar-height);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 0 18px;
+    gap:12px;
+    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    z-index: 9999;
   }
 
-  .killer-bottom-nav .nav-link{
-    flex: 1 1 0;
-    height: 56px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    text-decoration: none;
-    color: rgba(255,255,255,0.85);
-    font-family: 'Segoe UI', system-ui, -apple-system;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.6px;
-    border-radius: 12px;
-    transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms;
-    position: relative;
-    overflow: visible;
+  /* Brand group */
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand svg{ display:block; width:42px; height:42px; flex:0 0 42px; }
+  .brand .title{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+    user-select:none;
+  }
+  .brand .title .name{
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:0.3px;
+  }
+  .brand .title .tag{
+    font-size:12px;
+    opacity:0.75;
+    margin-top:2px;
   }
 
-  .killer-bottom-nav .nav-link:hover{transform: translateY(-4px);}
+  /* Right actions */
+  .actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .login-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:10px;
+    font-weight:600;
+    text-decoration:none;
+    color: #e6f7ff;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 4px 18px rgba(2,6,23,0.45);
+    transition: transform .12s ease, opacity .12s ease;
+  }
+  .login-btn:hover{ transform: translateY(-2px); opacity:0.98; }
 
-  .nav-icon{width:22px;height:22px;display:block}
-  .nav-icon path, .nav-icon rect, .nav-icon circle{vector-effect: non-scaling-stroke}
-
-  .nav-label{font-size:10px;color:rgba(255,255,255,0.75);}
-
-  /* Center CTA styling */
-  .killer-bottom-nav .nav-link.cta{
-    flex: 0 0 86px;
-    transform: translateY(-10%);
-    margin-top: -4px;
+  /* Mobile: collapse text slightly */
+  @media (max-width:520px){
+    .brand .title .name{ font-size:16px; }
+    .brand .title .tag{ display:none; }
+    .login-btn{ padding:7px 10px; font-size:14px; border-radius:8px; }
   }
 
-  .cta .cta-icon{width:56px;height:56px;filter: drop-shadow(0 6px 18px rgba(255,58,167,0.14)) drop-shadow(0 10px 40px rgba(255,122,89,0.06));}
-
-  /* Active state (based on pathname) */
-  .killer-bottom-nav .nav-link.active{
-    background: linear-gradient(90deg, rgba(122,95,255,0.12), rgba(0,255,209,0.06));
-    box-shadow: 0 8px 28px rgba(122,95,255,0.08), inset 0 1px 0 rgba(255,255,255,0.02);
-    color: #fff;
-    transform: translateY(-6px);
-  }
-
-  /* small screens tweak */
-  @media (max-width:420px){
-    .killer-bottom-nav{height:66px;padding:6px 8px;border-radius:12px}
-    .killer-bottom-nav .nav-link{height:48px;font-size:10px}
-    .killer-bottom-nav .nav-link.cta{flex-basis:72px}
-    .cta .cta-icon{width:48px;height:48px}
-  }
+  /* Add some page padding so content doesn't hide under bar */
+  main{ padding-top: calc(var(--bar-height) + 12px); }
 </style>
+</head>
+<body>
 
-<script>
-  // Highlight active link using pathname (no hash). Falls back to first item.
-  (function(){
-    try{
-      const links = document.querySelectorAll('.killer-bottom-nav .nav-link');
-      const path = (location.pathname || '/').replace(/\/$/, '');
-      let matched = false;
-      links.forEach(a=>{
-        const href = (new URL(a.href, location.origin)).pathname.replace(/\/$/, '');
-        if(href === path){ a.classList.add('active'); matched = true; }
-        else a.classList.remove('active');
-      });
-      if(!matched && links[0]) links[0].classList.add('active');
-    }catch(e){console.warn('nav init', e)}
-  })();
-</script>
+<header class="topbar" role="banner" aria-label="Top navigation bar">
+  <!-- Left: SVG logo + brand -->
+  <div class="brand" aria-hidden="false">
+    <!-- Simple SVG emblem for "apna 11" -->
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1">
+          <stop offset="0" stop-color="#ffb86b"/>
+          <stop offset="1" stop-color="#ff6a95"/>
+        </linearGradient>
+      </defs>
+
+      <!-- circular badge -->
+      <circle cx="50" cy="50" r="48" fill="url(#g)" />
+      <!-- subtle inner ring -->
+      <circle cx="50" cy="50" r="36" fill="rgba(255,255,255,0.06)"/>
+      <!-- "A" stylized -->
+      <g transform="translate(50,50) scale(0.8) translate(-0,-4)" fill="#fff" font-family="sans-serif" text-anchor="middle">
+        <text x="0" y="-8" font-size="28" font-weight="700">apna</text>
+        <text x="0" y="24" font-size="34" font-weight="800">11</text>
+      </g>
+    </svg>
+
+    <div class="title">
+      <div class="name">apna 11</div>
+      <div class="tag">{Mybrand}</div>
+    </div>
+  </div>
+
+  <!-- Right: actions -->
+  <div class="actions">
+    <a class="login-btn" href="#login" role="button" aria-label="Login or Sign up">+ Login/sinup</a>
+  </div>
+</header>
+
+<main>
+  <section style="padding:20px; color:#d1e9ff;">
+    <h1>Demo page content</h1>
+    <p>Yahan se page content scroll karega — top bar hamesha fixed rahega.</p>
+    <p>Example: change the brand text, tweak colors, ya SVG ko apne logo se replace kar le.</p>
+  </section>
+</main>
+
+</body>
+</html>
