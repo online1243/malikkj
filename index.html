@@ -1,27 +1,18 @@
-<!-- Floating Top Brand Bar -->
+<!-- Floating Top Bar with Image + PRO -->
 <div class="killer-top-bar">
   <div class="brand-box">
-    <!-- Brand SVG -->
-    <svg class="brand-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="tg" x1="0" x2="1">
-          <stop offset="0%" stop-color="#00ffd1"/>
-          <stop offset="100%" stop-color="#7A5FFF"/>
-        </linearGradient>
-        <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <circle cx="20" cy="20" r="18" fill="url(#tg)" filter="url(#glow2)" />
-      <text x="50%" y="55%" font-size="12" font-weight="700" fill="#fff" text-anchor="middle" font-family="Segoe UI">A11</text>
-    </svg>
 
-    <span class="brand-text">apna 11</span>
+    <!-- Brand Image -->
+    <img src="https://d13ir53smqqeyp.cloudfront.net/d11-static-pages/images/dream11LogoWhite.webp" class="brand-img" alt="Brand Logo">
+
+    <!-- PRO Text -->
+    <span class="pro-badge">PRO</span>
+
   </div>
 
   <a href="/login" class="login-btn">+ Login / Signup</a>
 </div>
+
 
 <style>
 .killer-top-bar{
@@ -51,18 +42,24 @@
   gap: 10px;
 }
 
-.brand-icon{
-  width: 36px;
-  height: 36px;
+.brand-img{
+  width: 115px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
 }
 
-.brand-text{
-  font-size: 17px;
-  font-weight: 700;
+/* PRO badge */
+.pro-badge{
+  font-size: 14px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff006a, #ff7e00);
+  padding: 3px 10px;
+  border-radius: 8px;
   color: #fff;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  font-family: 'Segoe UI', system-ui;
+  box-shadow: 0 0 12px rgba(255,0,98,0.35);
 }
 
 .login-btn{
@@ -84,8 +81,8 @@
 
 @media (max-width:420px){
   .killer-top-bar{ height: 56px; border-radius: 12px; }
-  .brand-icon{ width:30px; height:30px }
-  .brand-text{ font-size: 14px }
-  .login-btn{ padding:6px 10px; font-size:12px }
+  .brand-img{ width: 90px; }
+  .pro-badge{ font-size: 11px; padding: 3px 8px; }
+  .login-btn{ padding:6px 10px; font-size:12px; }
 }
 </style>
